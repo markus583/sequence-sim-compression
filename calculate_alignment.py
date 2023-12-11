@@ -39,6 +39,8 @@ def compress_sequence(sequence: str, method="gzip", **kwargs) -> int:
     if method == "gzip":
         import gzip
 
+        # use len() to get the length of the compressed sequence
+        # so the size is used as proxy for information content
         return len(gzip.compress(encoded_sequence, **kwargs))
     elif method == "7zip":
         import lzma
