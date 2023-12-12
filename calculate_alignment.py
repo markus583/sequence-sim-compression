@@ -35,7 +35,6 @@ def compress_sequence(sequence: str, method="gzip", **kwargs) -> int:
     """
     # encode the sequence as bytes before compressing
     # this is necessary because gzip only accepts bytes
-    print(len(sequence))
     encoded_sequence = sequence.encode()
     if method == "gzip":
         import gzip
