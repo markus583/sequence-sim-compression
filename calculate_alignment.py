@@ -53,8 +53,8 @@ def compress_sequence(sequence: str, method="gzip", **kwargs) -> int:
         raise ValueError("Unsupported compression method")
 
 
-def calculate_alignment_score(
-    file_a: str, file_b: str, method="gzip", **kwargs
+def calculate_distance_score(
+        file_a: str, file_b: str, method="gzip", **kwargs
 ) -> float:
     """Calculate the alignment score between two sequences.
 
@@ -78,7 +78,7 @@ def calculate_alignment_score(
 
     # score is the difference between the two compression lengths
     score = (c_a + c_b - c_ab) / max(c_a, c_b)
-    # a higher score means a better alignment, so it is inverted
+    # a higher score means a higher difference between the two sequences
     return 1 - score
 
 
